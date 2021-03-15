@@ -56,6 +56,7 @@ const ToggleButtonGroup = React.forwardRef(function ToggleButton(props, ref) {
     orientation = 'horizontal',
     size = 'medium',
     value,
+    color = 'default',
     ...other
   } = props;
 
@@ -126,6 +127,7 @@ const ToggleButtonGroup = React.forwardRef(function ToggleButton(props, ref) {
               ? isValueSelected(child.props.value, value)
               : child.props.selected,
           size: child.props.size || size,
+          color: child.props.color || color,
         });
       })}
     </div>
@@ -150,6 +152,10 @@ ToggleButtonGroup.propTypes = {
    * @ignore
    */
   className: PropTypes.string,
+  /**
+   * The color of the buttons when they are selected
+   */
+  color: PropTypes.oneOf(['default', 'primary', 'secondary']),
   /**
    * If `true`, only allow one of the child ToggleButton values to be selected.
    */

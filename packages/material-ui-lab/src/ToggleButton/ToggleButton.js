@@ -17,14 +17,30 @@ export const styles = (theme) => ({
     border: `1px solid ${fade(theme.palette.action.active, 0.12)}`,
     color: fade(theme.palette.action.active, 0.38),
     '&$selected': {
+      '& + &': {
+        borderLeft: 0,
+        marginLeft: 0,
+      },
+    },
+    '&$default': {
       color: theme.palette.action.active,
       backgroundColor: fade(theme.palette.action.active, 0.12),
       '&:hover': {
         backgroundColor: fade(theme.palette.action.active, 0.15),
       },
-      '& + &': {
-        borderLeft: 0,
-        marginLeft: 0,
+    },
+    '&$primary': {
+      color: theme.palette.primary.main,
+      backgroundColor: fade(theme.palette.primary.main, 0.12),
+      '&:hover': {
+        backgroundColor: fade(theme.palette.primary.main, 0.15),
+      },
+    },
+    '&$secondary': {
+      color: theme.palette.secondary.main,
+      backgroundColor: fade(theme.palette.secondary.main, 0.12),
+      '&:hover': {
+        backgroundColor: fade(theme.palette.secondary.main, 0.15),
       },
     },
     '&$disabled': {
@@ -46,6 +62,12 @@ export const styles = (theme) => ({
   disabled: {},
   /* Pseudo-class applied to the root element if `selected={true}`. */
   selected: {},
+  /* Pseudo-class applied to the root element if `selected={true}` and `color = "default"`. */
+  default: {},
+  /* Pseudo-class applied to the root element if `selected={true}` and `color = "primary"`. */
+  primary: {},
+  /* Pseudo-class applied to the root element if `selected={true}` and `color = "secondary"`. */
+  secondary: {},
   /* Styles applied to the `label` wrapper element. */
   label: {
     width: '100%', // Ensure the correct width for iOS Safari
@@ -77,6 +99,7 @@ const ToggleButton = React.forwardRef(function ToggleButton(props, ref) {
     selected,
     size = 'medium',
     value,
+    color = 'default',
     ...other
   } = props;
 
@@ -101,6 +124,9 @@ const ToggleButton = React.forwardRef(function ToggleButton(props, ref) {
           [classes.disabled]: disabled,
           [classes.selected]: selected,
           [classes[`size${capitalize(size)}`]]: size !== 'medium',
+          [classes.default]: selected && color !== 'primary' && color !== 'secondary',
+          [classes.primary]: selected && color === 'primary',
+          [classes.secondary]: selected && color === 'secondary',
         },
         className,
       )}
@@ -132,6 +158,10 @@ ToggleButton.propTypes = {
    * @ignore
    */
   className: PropTypes.string,
+  /**
+   * The color of the button when it is in an active state
+   */
+  color: PropTypes.oneOf(['default', 'primary', 'secondary']),
   /**
    * If `true`, the button will be disabled.
    */

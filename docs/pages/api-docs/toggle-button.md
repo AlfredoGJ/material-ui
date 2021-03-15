@@ -30,6 +30,7 @@ The `MuiToggleButton` name can be used for providing [default props](/customizat
 |:-----|:-----|:--------|:------------|
 | <span class="prop-name required">children<abbr title="required">*</abbr></span> | <span class="prop-type">node</span> |  | The content of the button. |
 | <span class="prop-name">classes</span> | <span class="prop-type">object</span> |  | Override or extend the styles applied to the component. See [CSS API](#css) below for more details. |
+| <span class="prop-name">color</span> | <span class="prop-type">'default'<br>&#124;&nbsp;'primary'<br>&#124;&nbsp;'secondary'</span> | <span class="prop-default">'default'</span> | The color of the button when it is in an active state |
 | <span class="prop-name">disabled</span> | <span class="prop-type">bool</span> | <span class="prop-default">false</span> | If `true`, the button will be disabled. |
 | <span class="prop-name">disableFocusRipple</span> | <span class="prop-type">bool</span> | <span class="prop-default">false</span> | If `true`, the  keyboard focus ripple will be disabled. |
 | <span class="prop-name">disableRipple</span> | <span class="prop-type">bool</span> |  | If `true`, the ripple effect will be disabled. |
@@ -47,6 +48,9 @@ Any other props supplied will be provided to the root element ([ButtonBase](/api
 | <span class="prop-name">root</span> | <span class="prop-name">.MuiToggleButton-root</span> | Styles applied to the root element.
 | <span class="prop-name">disabled</span> | <span class="prop-name">.Mui-disabled</span> | Pseudo-class applied to the root element if `disabled={true}`.
 | <span class="prop-name">selected</span> | <span class="prop-name">.Mui-selected</span> | Pseudo-class applied to the root element if `selected={true}`.
+| <span class="prop-name">default</span> | <span class="prop-name">.MuiToggleButton-default</span> | Pseudo-class applied to the root element if `selected={true}` and `color = "default"`.
+| <span class="prop-name">primary</span> | <span class="prop-name">.MuiToggleButton-primary</span> | Pseudo-class applied to the root element if `selected={true}` and `color = "primary"`.
+| <span class="prop-name">secondary</span> | <span class="prop-name">.MuiToggleButton-secondary</span> | Pseudo-class applied to the root element if `selected={true}` and `color = "secondary"`.
 | <span class="prop-name">label</span> | <span class="prop-name">.MuiToggleButton-label</span> | Styles applied to the `label` wrapper element.
 | <span class="prop-name">sizeSmall</span> | <span class="prop-name">.MuiToggleButton-sizeSmall</span> | Styles applied to the root element if `size="small"`.
 | <span class="prop-name">sizeLarge</span> | <span class="prop-name">.MuiToggleButton-sizeLarge</span> | Styles applied to the root element if `size="large"`.

@@ -40,6 +40,10 @@ export interface ToggleButtonGroupProps
    * The value must have reference equality with the option in order to be selected.
    */
   value?: any;
+  /**
+   * The color of the buttons when they are selected
+   */
+  color?: 'primary' | 'secondary' | 'default';
 }
 
 export type ToggleButtonGroupClassKey =

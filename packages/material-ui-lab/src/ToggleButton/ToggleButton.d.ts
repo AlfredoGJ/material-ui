@@ -10,6 +10,7 @@ export type ToggleButtonTypeMap<
   D extends React.ElementType = 'button'
 > = ExtendButtonBaseTypeMap<{
   props: P & {
+    color?: 'default' | 'primary' | 'secondary';
     disableFocusRipple?: boolean;
     selected?: boolean;
     size?: 'small' | 'medium' | 'large';
@@ -41,6 +42,9 @@ export type ToggleButtonClassKey =
   | 'root'
   | 'disabled'
   | 'selected'
+  | 'default'
+  | 'primary'
+  | 'secondary'
   | 'label'
   | 'sizeSmall'
   | 'sizeLarge';
